@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  comp_number: MyString
+  machine_name: MyString
+  isactive: false
+  machine: one
+
+two:
+  name: MyString
+  comp_number: MyString
+  machine_name: MyString
+  isactive: false
+  machine: two

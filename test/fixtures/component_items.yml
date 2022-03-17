@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_name: MyString
+  is_view: false
+  file_execute: false
+  file_execute_time: 2022-03-10
+  comp_name: MyString
+  machie_name: MyString
+  component: one
+  machine: one
+
+two:
+  item_name: MyString
+  is_view: false
+  file_execute: false
+  file_execute_time: 2022-03-10
+  comp_name: MyString
+  machie_name: MyString
+  component: two
+  machine: two
