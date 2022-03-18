@@ -16,6 +16,8 @@ Rails.application.routes.draw do
           post 'auth/login', to: 'users#login'
 
 		  get 'check_status' => 'tenants#check_status'
+
+		  get 'roles' => 'users#role'
 		  get 'execute_file' => 'component_items#execute_file'
 
 		  get 'select_component' => 'machines#select_comp'
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
 
 		  post 'upload_component_questions' => 'component_item_questions#upload_component_questions'
           get 'com_ques_list' => 'component_items#com_ques_list'
+          get 'view_reports' => 'reports#view_report'
  		end
 	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -7,7 +7,7 @@ class User
   field :password, type:  BCrypt::Password
   field :phone_no, type: String
   field :dup_password, type: String
-  field :isactive, type: Mongoid::Boolean
+  field :isactive, type: Mongoid::Boolean, default: true
   field :date, type: Date, default: Time.now
   field :role, type: String
   field :module, type: Array

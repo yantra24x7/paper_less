@@ -11,6 +11,12 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+  def role
+    @roles = Role.all
+
+    render json: @roles
+  end
+
   # GET /users/1
   def show
     render json: @user

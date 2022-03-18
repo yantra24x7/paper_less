@@ -34,15 +34,19 @@ class ComponentItemsController < ApplicationController
   # POST /component_items
   def create
     #@component_item = ComponentItem.new(component_item_params)
-    s3 = Aws::S3::Resource.new(region: ENV['S3_REGION'], access_key_id: ENV['AWS_ACCESS_KEY_ID'], secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
-    bucket = s3.bucket(ENV['S3_BUCKET'])
-    file_name = params[:avatar].original_filename
-    obj = bucket.object(file_name)
-    @file_path =  params[:avatar].path
-    #obj.upload_file(@file_path, acl: 'public-read')
-    obj.upload_file(@file_path)#, acl: 'public-read')
-    pic_url = obj.public_url
-    # obj = bucket.object(file_name)
+    if params[:avatar].present? && params[:avatar] != "undefined"
+      s3 = Aws::S3::Resource.new(region: ENV['S3_REGION'], access_key_id: ENV['AWS_ACCESS_KEY_ID'], secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
+      bucket = s3.bucket(ENV['S3_BUCKET'])
+      file_name = params[:avatar].original_filename
+      obj = bucket.object(file_name)
+      @file_path =  params[:avatar].path
+      #obj.upload_file(@file_path, acl: 'public-read')
+      obj.upload_file(@file_path)#, acl: 'public-read')
+      pic_url = obj.public_url
+      # obj = bucket.object(file_name)
+    else
+      pic_url = nil
+    end
 
     @component_item = ComponentItem.new(item_name: params[:item_name], is_view: params[:is_view], file_execute: false, file_execute_time: nil, comp_name: params[:comp_name], machie_name: params[:machie_name], component_id: params[:component_id], machine_id: params[:machine_id], avatar: pic_url)
     cr_user = User.find(@current_user['user_id'])
