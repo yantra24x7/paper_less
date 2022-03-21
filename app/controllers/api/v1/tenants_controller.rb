@@ -53,9 +53,9 @@ class TenantsController < ApplicationController
 
   def check_status
     if Tenant.count == 0
-      status = true
-    else
       status = false
+    else
+      status = true
     end
     render json: status
   end
